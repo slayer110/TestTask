@@ -1,0 +1,26 @@
+<div *ngIf="dashboardService.aut" >
+    <mat-card class="header">
+        <h2 style="display: inline">Test task</h2>
+        <div class="exit">
+        <span (click)="navig1()" class="exit">Выход</span>
+        <!--<button mat-raised-button (click)="navig1()">Выход</button>-->
+        <!--<i class="material-icons"></i>-->
+        </div>
+    </mat-card>
+</div>
+
+<div class="body-content">
+    <mat-card class="menu" *ngIf="dashboardService.aut" >
+        <mat-list *ngIf="dashboardService.aut">
+            <mat-list-item><a routerLink="person" routerLinkActive="docs-component-viewer-sidenav-item-selected">Личный кабинет</a></mat-list-item>
+            <mat-list-item><a routerLink="chart" routerLinkActive="docs-component-viewer-sidenav-item-selected">Панель управления</a></mat-list-item>
+            <mat-list-item><a routerLink="dashboard" rosuterLinkActive="docs-component-viewer-sidenav-item-selected">Каталог валют</a></mat-list-item>
+        </mat-list>
+    </mat-card>
+    <!--<div style="display: inline-block; vertical-align: top; width: calc(100% - 310px)">-->
+        <router-outlet></router-outlet>
+    <!--</div>-->
+</div>
+
+
+

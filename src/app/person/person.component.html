@@ -1,0 +1,75 @@
+<div class="container-fluid" style="display:inline-block;width: calc(100% - 310px);">
+    <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+
+        <div class="page-header">
+            <h1>
+                <span>Личный кабинет</span><br/>
+            </h1>
+        </div>
+
+        <div class="panel panel-default">
+            <table class="table table-striped" [mfData]="dashboardService.data2" #mf="mfDataTable"
+                   [mfRowsOnPage]="dashboardService.rowsOnPage" [(mfSortBy)]="dashboardService.sortBy"
+                   [(mfSortOrder)]="dashboardService.sortOrder">
+                <thead>
+                <tr>
+                    <th style="width: 22%">
+                        <mfDefaultSorter by="Date">Дата</mfDefaultSorter>
+                    </th>
+                    <th style="width: 22%">
+                        <mfDefaultSorter by="nameRus">Валюта</mfDefaultSorter>
+                    </th>
+                    <th style="width: 22%">
+                        <mfDefaultSorter by="nameEng">Currency</mfDefaultSorter>
+                    </th>
+                    <th style="width: 22%">
+                        <mfDefaultSorter by="Cur_OfficialRate">Курс</mfDefaultSorter>
+                    </th>
+                    <th style="width: 12%"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of mf.data; let i=index">
+                    <td>{{item.date}}</td>
+                    <td>{{item.name_rus}}</td>
+                    <td>{{item.cur_cod}}</td>
+                    <td>{{item.rate}}</td>
+                    <td>
+
+                            <mat-icon title="Удалить"class="mat-icon material-icons toogle-button" role="img" aria-hidden="true" style="font-size: 28px;cursor:pointer;
+    " (click)="dashboardService.delete_Cur(item)">delete
+                            </mat-icon>
+
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3">
+                        <mfBootstrapPaginator></mfBootstrapPaginator>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<!--<i class="material-icons" >check_box_outline_blank</i>-->
+<!--<i class="material-icons" >check_box</i>-->
+<!--</button>-->
+<!--<span class="title">USD</span></li>-->
+<!--<li> <button class="checkbox icon"(click)="submit('0','1','0','EUR')">-->
+<!--<i class="material-icons" >check_box_outline_blank</i>-->
+<!--</button>-->
+<!--<span class="title">EUR</span></li>-->
+<!--<li> <button class="checkbox icon"(click)="submit('0','0','1','RUB')">-->
+<!--<i class="material-icons" >check_box_outline_blank</i>-->
+<!--</button>-->
+<!--<span class="title">RUB</span></li>-->
+<!--<li> <button class="checkbox icon" (click)="submit('1','1','1','USD','EUR','RUB')">-->
+<!--<i class="material-icons" >check_box_outline_blank</i>-->
+<!--</button>-->
+<!--<span class="title">Все</span></li>-->
+

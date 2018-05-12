@@ -1,0 +1,86 @@
+<div class="container-fluid" style="display:inline-block;width: calc(100% - 620px);">
+    <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+
+        <div class="page-header">
+            <h1>
+                <span>Курсы валют</span><br/>
+            </h1>
+        </div>
+
+        <div class="panel panel-default">
+            <table class="table table-striped" [(mfData)]="dashboardService.data" #mf="mfDataTable"
+                   [mfRowsOnPage]="dashboardService.rowsOnPage" [(mfSortBy)]="dashboardService.sortBy" [(mfSortOrder)]="dashboardService.sortOrder">
+                <thead>
+                <tr>
+                    <th style="width: 22%">
+                        <mfDefaultSorter by="Date">Дата</mfDefaultSorter>
+                    </th>
+                    <th style="width: 22%">
+                        <mfDefaultSorter by="nameRus">Валюта</mfDefaultSorter>
+                    </th>
+                    <th style="width: 22%">
+                        <mfDefaultSorter by="nameEng">Currency</mfDefaultSorter>
+                    </th>
+                    <th style="width: 22%">
+                        <mfDefaultSorter by="Cur_OfficialRate">Курс</mfDefaultSorter>
+                    </th>
+                    <th style="width: 12%; color: #337ab7">Избранное</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of mf.data; let i=index">
+                    <td>{{item.Date}}</td>
+                    <td>{{item.nameRus}}</td>
+                    <td>{{item.nameEng}}</td>
+                    <td>{{item.Cur_OfficialRate}}</td>
+                    <td style="cursor: pointer">
+                            <img (click)="dashboardService.func(item)" *ngIf="item.completed" src="http://www.acesportsandactionphotography.com/publishImages/compuchildmainbackup~~element362.gif" width="30px" alt="img"/>
+                            <img (click)="dashboardService.func(item)" *ngIf="!item.completed" src="http://www.freeiconspng.com/uploads/download-png-image-star-png-image-1.png" width="30px" alt="img"/>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+<mat-card class="right-sidebar" style="display:inline-block;width: 300px;min-height: 500px;
+    float: right;vertical-align: top; margin-top: 1px">
+    <input type="date" [(ngModel)]="dashboardService.httpService.startDate"/>
+
+    <button mat-raised-button class="button-size button-send" (click)="dashboardService.favorite1();">Отправить</button>
+
+    <button mat-raised-button  class="button-size" (click)="dashboardService.favorite()">Избранное</button>
+    <br>
+    <button mat-raised-button  class="button-size" (click)="dashboardService.noFavorite()">Неизбранное</button>
+    <br>
+    <button mat-raised-button  class="button-size" (click)="dashboardService.favorite1();">Всё</button>
+    <!--<button (click)="">Неизбранное</button>-->
+    <!--<button (click)="">Всё</button>-->
+
+    <!--<i class="material-icons" >check_box_outline_blank</i>-->
+    <!--<i class="material-icons" >check_box</i>-->
+    <!--</button>-->
+    <!--<span class="title">USD</span></li>-->
+    <!--<li> <button class="checkbox icon"(click)="submit('0','1','0','EUR')">-->
+    <!--<i class="material-icons" >check_box_outline_blank</i>-->
+    <!--</button>-->
+    <!--<span class="title">EUR</span></li>-->
+    <!--<li> <button class="checkbox icon"(click)="submit('0','0','1','RUB')">-->
+    <!--<i class="material-icons" >check_box_outline_blank</i>-->
+    <!--</button>-->
+    <!--<span class="title">RUB</span></li>-->
+    <!--<li> <button class="checkbox icon" (click)="submit('1','1','1','USD','EUR','RUB')">-->
+    <!--<i class="material-icons" >check_box_outline_blank</i>-->
+    <!--</button>-->
+    <!--<span class="title">Все</span></li>-->
+
+
+</mat-card>

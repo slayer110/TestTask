@@ -1,0 +1,16 @@
+<mat-card class="container">
+
+    <h3>Форма авторизации</h3>
+
+    <mat-input-container>
+        <input matInput placeholder="Login" [(ngModel)]="dashboardService.httpService.login">
+    </mat-input-container>
+    <br>
+    <br>
+    <mat-input-container>
+        <input matInput placeholder="Password" [(ngModel)]="dashboardService.httpService.password">
+    </mat-input-container>
+    <br>
+    <br>
+    <button mat-raised-button *ngIf="!dashboardService.aut" (click)="dashboardService.Autor();">Отправить</button>
+</mat-card>

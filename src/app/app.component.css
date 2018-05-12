@@ -1,0 +1,28 @@
+.header{height: 80px;width: 100%;
+    background: #ececea;
+}
+.exit{
+    float: right;
+    display: inline;
+    line-height: 36px;
+    font-size: 12px;
+    text-decoration: underline;
+    color: cadetblue;
+    cursor:pointer;
+}
+.active {color:green;}
+.menu{width: 200px;
+height: 600px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 1px;
+    padding: 10px;
+}
+
+.menu a {
+    font-size: 15px;
+}
+
+.body-content {
+    position: relative;
+}

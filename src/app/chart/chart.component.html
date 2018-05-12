@@ -1,0 +1,92 @@
+
+<div class="content" style="display:inline-block;width: calc(100% - 270px);">
+        <div id="chartdiv" [style.height.px]="500"></div>
+    </div>
+
+
+    <mat-icon class="mat-icon material-icons toogle-button" role="img" aria-hidden="true" style="
+    font-size: 28px;
+    " (click)="flagMenu = !flagMenu">settings</mat-icon>
+
+    <mat-card class="right-menu" *ngIf = "flagMenu">
+        <input type="date" [(ngModel)]="chartService.httpService.startDate"/>
+        <input type="date" [(ngModel)]="chartService.httpService.endDate"/>
+        <button mat-raised-button class="filter-button" (click)="chartService.submit()">Отправить</button>
+        <div class="right-menu-content">
+            <ul>
+
+                <!--<li *ngFor="let n of names">-->
+                <!--<input type="checkbox" [(ngModel)]="n.selected" [checked]="select()"(change)="checkIfAllSelected();">-->
+                <!--{{n.name}}-->
+                <!--</li>-->
+                <li>
+                    <mat-checkbox class="green" [(ngModel)]="chartService.names[0].selected "
+                                 (change)="chartService.checkIfAllSelected(0);chartService.checkedUSD()">
+                    </mat-checkbox>
+                    <!--<input type="checkbox" [(ngModel)]="chartService.names[0].selected "-->
+                           <!--(change)="chartService.checkIfAllSelected(0);chartService.checkedUSD()">-->
+                    {{chartService.names[0].name}}
+                </li>
+                <li>
+                    <mat-checkbox [(ngModel)]="chartService.names[1].selected "
+                                 (change)="chartService.checkIfAllSelected(1);chartService.checkedEUR()">
+                    </mat-checkbox>
+                    {{chartService.names[1].name}}
+                </li>
+                <li>
+                    <mat-checkbox [(ngModel)]="chartService.names[2].selected "
+                                 (change)="chartService.checkIfAllSelected(2);chartService.checkedRUR()">
+                    </mat-checkbox>
+                    {{chartService.names[2].name}}
+                </li>
+                <li>
+                    <mat-checkbox [(ngModel)]="chartService.names[3].selected "
+                                 (change)="chartService.checkIfAllSelected(3);chartService.checkedPOUND()">
+                    </mat-checkbox>
+                    {{chartService.names[3].name}}
+                </li>
+                <li>
+                    <mat-checkbox [(ngModel)]="chartService.names[4].selected "
+                                 (change)="chartService.checkIfAllSelected(4);chartService.checkedSVISS()">
+                    </mat-checkbox>
+                    {{chartService.names[4].name}}
+                </li>
+                <li>
+                    <mat-checkbox [(ngModel)]="chartService.names[5].selected "
+                                 (change)="chartService.checkIfAllSelected(5);chartService.checkedKWD()">
+                    </mat-checkbox>
+                    {{chartService.names[5].name}}
+                </li>
+                <li>
+                    <mat-checkbox [(ngModel)]="chartService.selectedAll" (change)="chartService.selectAll();">
+                    </mat-checkbox>
+                    Все
+                </li>
+            </ul>
+
+        </div>
+    </mat-card>
+
+
+        <!--<li>   <button class="checkbox icon" id="USD" (click)="submit('1','0','0','USD')">-->
+        <!--<i class="material-icons" >check_box_outline_blank</i>-->
+        <!--<i class="material-icons" >check_box</i>-->
+        <!--</button>-->
+        <!--<span class="title">USD</span></li>-->
+        <!--<li> <button class="checkbox icon"(click)="submit('0','1','0','EUR')">-->
+        <!--<i class="material-icons" >check_box_outline_blank</i>-->
+        <!--</button>-->
+        <!--<span class="title">EUR</span></li>-->
+        <!--<li> <button class="checkbox icon"(click)="submit('0','0','1','RUB')">-->
+        <!--<i class="material-icons" >check_box_outline_blank</i>-->
+        <!--</button>-->
+        <!--<span class="title">RUB</span></li>-->
+        <!--<li> <button class="checkbox icon" (click)="submit('1','1','1','USD','EUR','RUB')">-->
+        <!--<i class="material-icons" >check_box_outline_blank</i>-->
+        <!--</button>-->
+        <!--<span class="title">Все</span></li>-->
+
+
+
+
+
